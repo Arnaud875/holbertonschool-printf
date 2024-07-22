@@ -13,10 +13,10 @@ int _printf(const char *format, ...)
     char type;
     va_list args;
     PrintType_t printer[] = {
-        {"c", test},
-        {"s", test},
-        {"d", test},
-        {"i", test},
+        {"c", print_char},
+        /* {"s", test}, */
+        {"d", print_integer},
+        /* {"i", test}, */
         {NULL, NULL}};
 
     va_start(args, format);
@@ -37,8 +37,8 @@ int _printf(const char *format, ...)
         else
         {
             _putchar(format[i]);
+            writtenBytes++;
         }
-        writtenBytes++;
     }
 
     va_end(args);

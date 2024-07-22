@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
  * _printf - Format a string and print it in the console
@@ -10,13 +9,38 @@
  */
 int _printf(const char *format, ...)
 {
-    int i = 0, writtenBytes = 0;
+    int i = 0, j = 0, writtenBytes = 0;
+    char type;
+    va_list args;
+    PrintType_t printer[] = {
+        {"c", test},
+        {"s", test},
+        {"d", test},
+        {"i", test},
+        {NULL, NULL}};
+
+    va_start(args, format);
 
     for (; format[i] != '\0'; i++)
     {
-        printf("%c", format[i]);
+        type = format[i + 1];
+        if (format[i] == '%' && type != '%')
+        {
+            for (j = 0; printer[j].type; j++)
+            {
+                if (*printer[j].type == type)
+                    writtenBytes += printer[j].print_type_function(args);
+            }
+
+            i++;
+        }
+        else
+        {
+            _putchar(format[i]);
+        }
         writtenBytes++;
     }
 
+    va_end(args);
     return (writtenBytes);
 }

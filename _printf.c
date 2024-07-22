@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  * _printf - Format a string and print it in the console
@@ -9,4 +10,13 @@
  */
 int _printf(const char *format, ...)
 {
+    int i = 0, writtenBytes = 0;
+
+    for (; format[i] != '\0'; i++)
+    {
+        printf("%c", format[i]);
+        writtenBytes++;
+    }
+
+    return (writtenBytes);
 }

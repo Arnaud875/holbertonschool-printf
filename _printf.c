@@ -16,8 +16,14 @@ int helper_format(const char **format, va_list args, PrintType_t printer[])
 		if (*printer[j].type == **format)
 		{
 			writtenBytes += printer[j].print_type_function(args);
-			return (writtenBytes);
+			break;
 		}
+	}
+
+	if (writtenBytes == 0)
+	{
+		_putchar('%');
+		writtenBytes++;
 	}
 
 	return (writtenBytes);

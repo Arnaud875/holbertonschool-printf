@@ -27,7 +27,7 @@ int _printf(const char *format, ...)
     for (; format[i] != '\0'; i++)
     {
         type = format[i + 1];
-        if (format[i] == '%' && type == '%') // Check if %%
+        if (format[i] == '%' && type == '%') /* Check if %% */
         {
             _putchar('%');
             i++;
@@ -35,7 +35,7 @@ int _printf(const char *format, ...)
             continue;
         }
 
-        if (format[i] == '%' && type == '\0') // Check if % and null bytes
+        if (format[i] == '%' && type == '\0') /* Check if % and null bytes */
             return (-1);
 
         if (format[i] == '%')

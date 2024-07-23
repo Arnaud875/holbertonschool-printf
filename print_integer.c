@@ -11,7 +11,7 @@ int printnumber(int n)
 
 	if (n < 0)
 	{
-		putchar('-');
+		_putchar('-');
 		n = -n;
 		count++;
 	}
@@ -21,7 +21,7 @@ int printnumber(int n)
 		count += printnumber(n / 10);
 	}
 
-	putchar(n % 10 + '0');
+	_putchar(n % 10 + '0');
 	count++;
 
 	return (count);

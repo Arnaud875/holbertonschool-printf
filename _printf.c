@@ -2,7 +2,7 @@
 
 /**
  * helper_format - Helper function to format and print specific types
- * @type: The type specifier character
+ * @format: The type specifier character
  * @args: The variadic arguments
  * @printer: The array of PrintType_t structures
  * Return: Number of bytes written for the specific type

@@ -18,8 +18,9 @@ void test_default(void)
   CHECK("Hello world !\n");
   CHECK("Hello %% world !\n");
   CHECK("Hello world !%");
-  CHECK("test %z test\n");
-  CHECK("test %% %t\n");
+  CHECK("test %r test\n");
+  CHECK("test %% %r\n");
+  CHECK("[%r]\n");
   CHECK("");
   CHECK("test \0 t");
 }

@@ -22,7 +22,7 @@ int helper_format(const char **format, va_list args, PrintType_t printer[])
 
 	_putchar('%');
 	_putchar(**format);
-	writtenBytes++;
+	writtenBytes += 2;
 
 	return (writtenBytes);
 }

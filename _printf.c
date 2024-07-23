@@ -11,10 +11,6 @@ int helper_format(const char **format, va_list args, PrintType_t printer[])
 {
 	int writtenBytes = 0, j = 0;
 
-	if (**format == ' ')
-		while (**format == ' ')
-			(*format)++;
-
 	for (j = 0; printer[j].type != NULL; j++)
 	{
 		if (*printer[j].type == **format)
@@ -23,9 +19,6 @@ int helper_format(const char **format, va_list args, PrintType_t printer[])
 			return (writtenBytes);
 		}
 	}
-
-	_putchar('%');
-	writtenBytes++;
 
 	return (writtenBytes);
 }

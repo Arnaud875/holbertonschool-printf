@@ -1,5 +1,7 @@
 #include "../main.h"
 #include <stdio.h>
+#include <stdlib.h>
+#include <limits.h>
 #include <assert.h>
 
 int writtenBytes, writtenBytesOrigin = 0;
@@ -15,7 +17,10 @@ void test_default(void)
   CHECK("I am 15 years old\n");
   CHECK("Hello world !\n");
   CHECK("Hello %% world !\n");
-  // CHECK("Hello % world !%");
+  CHECK("Hello world !%");
+  CHECK("test %z test\n");
+  CHECK("test % ztest\n");
+  CHECK("test %    ztest\n");
 }
 
 void test_character(void)
@@ -38,6 +43,21 @@ void test_integer(void)
   CHECK("Integer: %d\n", -34892);
   CHECK("Integer: %d\n", -2147483647);
   CHECK("Integer: %d\n", -0);
+  CHECK("Integer: %d\n", INT_MAX);
+  CHECK("Integer: %d\n", INT_MIN);
+
+  CHECK("Integer: %i\n", 0);
+  CHECK("Integer: %i\n", 8);
+  CHECK("Integer: %i\n", 249);
+  CHECK("Integer: %i\n", 38943);
+  CHECK("Integer: %i\n", 2147483647);
+  CHECK("Integer: %i\n", -3);
+  CHECK("Integer: %i\n", -343);
+  CHECK("Integer: %i\n", -34892);
+  CHECK("Integer: %i\n", -2147483647);
+  CHECK("Integer: %i\n", -0);
+  CHECK("Integer: %i\n", INT_MAX);
+  CHECK("Integer: %i\n", INT_MIN);
 }
 
 void test_string(void)

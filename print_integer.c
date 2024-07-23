@@ -9,6 +9,14 @@ int printnumber(int n)
 {
 	int count = 0;
 
+	if (n == -2147483648)
+	{
+		_putchar('-');
+		_putchar('2');
+		n = 147483648;
+		count += 2;
+	}
+
 	if (n < 0)
 	{
 		_putchar('-');

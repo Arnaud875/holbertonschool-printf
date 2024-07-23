@@ -7,18 +7,25 @@
  * @printer: The array of PrintType_t structures
  * Return: Number of bytes written for the specific type
  */
-int helper_format(char type, va_list args, PrintType_t printer[])
+int helper_format(const char **format, va_list args, PrintType_t printer[])
 {
 	int writtenBytes = 0, j = 0;
 
+	if (**format == ' ')
+		while (**format == ' ')
+			(*format)++;
+
 	for (j = 0; printer[j].type != NULL; j++)
 	{
-		if (*printer[j].type == type)
+		if (*printer[j].type == **format)
 		{
 			writtenBytes += printer[j].print_type_function(args);
-			break;
+			return (writtenBytes);
 		}
 	}
+
+	_putchar('%');
+	writtenBytes++;
 
 	return (writtenBytes);
 }
@@ -53,9 +60,13 @@ int process_format(const char *format, va_list args, PrintType_t printer[])
 			{
 				process_percent(&writtenBytes);
 			}
+			else if (*format == '\0')
+			{
+				return (-1);
+			}
 			else
 			{
-				writtenBytes += helper_format(*format, args, printer);
+				writtenBytes += helper_format(&format, args, printer);
 			}
 		}
 		else

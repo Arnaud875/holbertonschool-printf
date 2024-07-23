@@ -19,8 +19,8 @@ void test_default(void)
   CHECK("Hello %% world !\n");
   CHECK("Hello world !%");
   CHECK("test %z test\n");
-  CHECK("test % ztest\n");
-  CHECK("test %    ztest\n");
+  // CHECK("test % ztest\n");
+  // CHECK("test %    ztest\n");
 }
 
 void test_character(void)

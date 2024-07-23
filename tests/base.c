@@ -59,18 +59,15 @@ void test_global(void)
 
 int main(void)
 {
-  int writtenBytes;
-  int writtenBytesOrigin;
-
-  printf("test");
-
-  writtenBytes = _printf("I am %d years old.", 10); /* I am 10 years old */
-  writtenBytesOrigin = printf("I am %d years old.", 10);
-  assert(writtenBytes == writtenBytesOrigin);
-
-  writtenBytes = _printf("I am %%d years old."); /* I am %d years old */
-  writtenBytesOrigin = printf("I am %%d years old.");
-  assert(writtenBytes == writtenBytesOrigin);
+  test_default();
+  printf("---------------------------------------------------------------------------\n");
+  test_character();
+  printf("---------------------------------------------------------------------------\n");
+  test_integer();
+  printf("---------------------------------------------------------------------------\n");
+  test_string();
+  printf("---------------------------------------------------------------------------\n");
+  test_global();
 
   return (0);
 }

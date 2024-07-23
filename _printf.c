@@ -51,7 +51,7 @@ int process_format(const char *format, va_list args, PrintType_t printer[])
 			format++;
 			if (*format == '%')
 			{
-				handle_percent(&writtenBytes);
+				process_percent(&writtenBytes);
 			}
 			else if (*format == '\0')
 			{

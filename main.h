@@ -1,6 +1,7 @@
 #ifndef __MAIN_H__
 #define __MAIN_H__
 
+#include <stdio.h>
 #include <stdarg.h>
 
 /**
@@ -15,5 +16,11 @@ typedef struct PrintType
 } PrintType_t;
 
 int _printf(const char *format, ...);
+int _putchar(char character);
+
+int print_integer(va_list arguments);
+int print_char(va_list arguments);
+int print_string(va_list arguments);
+int printnumber(int n);
 
 #endif

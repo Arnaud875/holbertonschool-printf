@@ -14,7 +14,7 @@ int _printf(const char *format, ...)
     va_list args;
     PrintType_t printer[] = {
         {"c", print_char},
-        /* {"s", test}, */
+        {"s", print_string},
         {"d", print_integer},
         /* {"i", test}, */
         {NULL, NULL}};

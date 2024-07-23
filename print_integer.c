@@ -7,17 +7,40 @@
  * @arguments: integer to print
  * Return: 1
  */
+void printnumber(int i)
+{
+
+  if (i / 10 != 0)
+  {
+    putchar(i % 10);
+    printnumber((i - i % 10) / 10);
+  }
+  else if ((i / 10 == 0) && (i % 10 != 0) && (i > 0))
+    putchar(i % 10);
+  else if ((i / 10 == 0) && (i % 10 != 0) && (i <= 0))
+    putchar(-i % 10);
+}
+
 int print_integer(va_list arguments)
 {
   int number = va_arg(arguments, int);
-  char buffer[7];
-  int i;
 
-  itoa(number, buffer, 10);
-  for (i = 0; buffer[i] != '\0'; i++)
+  if (number < 0)
   {
-    _putchar(buffer[i]);
+    putchar('-');
+    number = -number;
   }
 
+  if (number == 0)
+  {
+    putchar('0');
+  }
+
+  if (number / 10)
+  {
+    printnumber(number / 10);
+  }
+
+  putchar(number % 10 + '0');
   return (1);
 }

@@ -19,6 +19,10 @@ int main(void)
   writtenBytesOrigin = printf("I am %d years old.\n", 2147483647);
   assert(writtenBytes == writtenBytesOrigin);
 
+  writtenBytes = _printf("I am %s years old.\n", "test"); /* I am %d years old */
+  writtenBytesOrigin = printf("I am %s years old.\n", "test");
+  assert(writtenBytes == writtenBytesOrigin);
+
   writtenBytes = _printf("I am %%d years old.\n"); /* I am %d years old */
   writtenBytesOrigin = printf("I am %%d years old.\n");
   assert(writtenBytes == writtenBytesOrigin);

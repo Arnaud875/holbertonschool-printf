@@ -13,18 +13,32 @@ int _printf(const char *format, ...)
     char type;
     va_list args;
     PrintType_t printer[] = {
-        {"c", test},
-        {"s", test},
-        {"d", test},
-        {"i", test},
+        {"c", print_char},
+        {"s", print_string},
+        {"d", print_integer},
+        {"i", print_integer},
         {NULL, NULL}};
+
+    if (format == NULL)
+        return (-1);
 
     va_start(args, format);
 
     for (; format[i] != '\0'; i++)
     {
         type = format[i + 1];
-        if (format[i] == '%' && type != '%')
+        if (format[i] == '%' && type == '%') // Check if %%
+        {
+            _putchar('%');
+            i++;
+            writtenBytes++;
+            continue;
+        }
+
+        if (format[i] == '%' && type == '\0') // Check if % and null bytes
+            return (-1);
+
+        if (format[i] == '%')
         {
             for (j = 0; printer[j].type; j++)
             {
@@ -37,8 +51,8 @@ int _printf(const char *format, ...)
         else
         {
             _putchar(format[i]);
+            writtenBytes++;
         }
-        writtenBytes++;
     }
 
     va_end(args);

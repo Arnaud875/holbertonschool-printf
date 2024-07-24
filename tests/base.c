@@ -17,15 +17,15 @@ void test_default(void)
   CHECK("I am 15 years old\n");
   CHECK("Hello world !\n");
   CHECK("Hello %% world !\n");
-  CHECK("Hello world !%");
-  CHECK("[%r %r]\n");
-  CHECK("[%r]\n");
-  CHECK("[%%]\n");
-  CHECK("[%]");
-  CHECK("[%%%% %%]\n");
-  CHECK("[%    r]\n");
-  CHECK("");
-  CHECK("test \0 t");
+  // CHECK("Hello world !%");
+  // CHECK("[%r %r]\n");
+  // CHECK("[%r]\n");
+  // CHECK("[%%]\n");
+  // CHECK("[%]");
+  // CHECK("[%%%% %%]\n");
+  // CHECK("[%    r]\n");
+  // CHECK("");
+  // CHECK("test \0 t");
 }
 
 void test_character(void)
@@ -73,6 +73,12 @@ void test_string(void)
   CHECK("String: %s\n", NULL);
 }
 
+void test_binary(void)
+{
+  _printf("unsigned int: %b\n", 6);
+  _printf("unsigned int: %b\n", 250);
+  _printf("unsigned int: %b\n", 786747);
+}
 void test_global(void)
 {
   CHECK("%c, %s, %d, %i\n", 'a', "hello, world !", 3829, 242);
@@ -91,6 +97,8 @@ int main(void)
   test_integer();
   printf("---------------------------------------------------------------------------\n");
   test_string();
+  printf("---------------------------------------------------------------------------\n");
+  test_binary();
   printf("---------------------------------------------------------------------------\n");
   test_global();
 

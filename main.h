@@ -21,6 +21,7 @@ int _putchar(char character);
 int print_integer(va_list arguments);
 int print_char(va_list arguments);
 int print_string(va_list arguments);
+int print_binary(va_list arguments);
 int printnumber(int n);
 
 #endif

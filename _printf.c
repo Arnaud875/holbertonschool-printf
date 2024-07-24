@@ -89,11 +89,12 @@ int _printf(const char *format, ...)
 	int writtenBytes = 0;
 	va_list args;
 	PrintType_t printer[] = {
-		{"c", print_char},
-		{"s", print_string},
-		{"d", print_integer},
-		{"i", print_integer},
-		{NULL, NULL}};
+			{"c", print_char},
+			{"s", print_string},
+			{"d", print_integer},
+			{"i", print_integer},
+			{"b", print_binary},
+			{NULL, NULL}};
 
 	if (format == NULL)
 		return (-1);

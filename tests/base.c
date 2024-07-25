@@ -17,15 +17,14 @@ void test_default(void)
   CHECK("I am 15 years old\n");
   CHECK("Hello world !\n");
   CHECK("Hello %% world !\n");
-  // CHECK("Hello world !%");
-  // CHECK("[%r %r]\n");
-  // CHECK("[%r]\n");
-  // CHECK("[%%]\n");
-  // CHECK("[%]");
-  // CHECK("[%%%% %%]\n");
-  // CHECK("[%    r]\n");
-  // CHECK("");
-  // CHECK("test \0 t");
+  CHECK("Hello world !%");
+  CHECK("[%r %r]\n");
+  CHECK("[%r]\n");
+  CHECK("[%%]\n");
+  CHECK("[%]");
+  CHECK("[%%%% %%]\n");
+  CHECK("");
+  CHECK("test \0 t");
 }
 
 void test_character(void)

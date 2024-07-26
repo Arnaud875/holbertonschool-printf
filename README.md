@@ -164,4 +164,4 @@ PrintType_t: *Structure to map format specifiers to their corresponding print fu
         CHECK("%c, %s, %d, %i\n", 'a', "hello, world !", 3829, 242);
 ## Flowchart
 
-https://github.com/Arnaud875/holbertonschool-printf/blob/main/flowchart.png?raw=true
+https://github.com/Arnaud875/holbertonschool-printf/blob/main/flowchart.pngjpeg?raw=true

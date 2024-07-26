@@ -173,4 +173,4 @@ typedef struct PrintType
 
 ## Flowchart
 
-- [Colored flowtchar](https://github.com/Arnaud875/holbertonschool-printf/blob/main/subdirectory/colored%20flowtchar)
+![Colored flowtchar](https://github.com/Arnaud875/holbertonschool-printf/blob/main/path/to/colored%20flowtchar.png)

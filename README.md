@@ -3,10 +3,14 @@
 **Description**
 
 The holbertonschool-printf project is an educational implementation of the printf function in C, created as part of the Holberton School curriculum. This project aims to replicate the functionality of the standard printf function, providing a deep dive into format specifiers, argument handling, and custom output formatting.
-## Created with 
+## Installation
 
-* vs code
-* C language 
+1. Clone repository
+
+        git clone https://github.com/Arnaud875/holbertonschool-printf.git
+
+2. Include header _printf.c
+
 ## Features
 
 - **Supported Format Specifiers:**
@@ -48,6 +52,31 @@ c
     stdout: Binary: 1100010
 
     stdout: Percent: %
+## Test
+
+1. test default
+
+        CHECK("Hello world !\n");
+
+2. test character
+
+        CHECK("Character: %c\n", 'a');
+
+3. test integer
+
+        CHECK("Integer: %d\n", 249);
+
+4. test string
+
+        CHECK("String: %s\n", "Hello my friend !");
+
+5. test binary 
+
+        _printf("unsigned int: %b\n", 6);
+
+6. test global 
+
+        CHECK("%c, %s, %d, %i\n", 'a', "hello, world !", 3829, 242);
 ## Compilation
 *       gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format *.c
 ##  Files
@@ -102,23 +131,37 @@ PrintType_t: *Structure to map format specifiers to their corresponding print fu
     int (*print_type_function)(va_list args);
     } PrintType_t;
 
-## Contributing
-
-1. Create the repository
-
-2. Create a new branch: 
-
-    -git checkout -b Arnaud
-
-    -git checkout -b Ema
-
-3. Make your changes and commit them: git commit
-
-4. Push to the branch: git push origin/main
-
-5. Open a pull request.
 ## Authors
 
 - [@Arnaud875](https://www.github.com/Arnaud875)
 
 - [@Duupain](https://www.github.com/Duupain)
+
+## Test
+
+1. test default
+
+        CHECK("Hello world !\n");
+
+2. test character
+
+        CHECK("Character: %c\n", 'a');
+
+3. test integer
+
+        CHECK("Integer: %d\n", 249);
+
+4. test string
+
+        CHECK("String: %s\n", "Hello my friend !");
+
+5. test binary 
+
+        _printf("unsigned int: %b\n", 6);
+
+6. test global 
+
+        CHECK("%c, %s, %d, %i\n", 'a', "hello, world !", 3829, 242);
+## Flowchart
+
+https://github.com/Arnaud875/holbertonschool-printf/blob/main/flowchart.png?raw=true

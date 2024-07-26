@@ -1,24 +1,31 @@
-## Printf project
+# Holberton School - printf Project
 
 **Description**
 
-The holbertonschool-printf project is an educational implementation of the printf function in C, created as part of the Holberton School curriculum. This project aims to replicate the functionality of the standard printf function, providing a deep dive into format specifiers, argument handling, and custom output formatting.
+The **holbertonschool-printf** project is an educational implementation of the `printf` function in C, created as part of the Holberton School curriculum. This project aims to replicate the functionality of the standard `printf` function, providing a deep dive into format specifiers, argument handling, and custom output formatting.
+
 ## Installation
 
-1. Clone repository
+1. Clone the repository:
 
-        git clone https://github.com/Arnaud875/holbertonschool-printf.git
+    ```sh
+    git clone https://github.com/Arnaud875/holbertonschool-printf.git
+    ```
 
-2. Include header _printf.c
+2. Include the header in your code:
+
+    ```c
+    #include "main.h"
+    ```
 
 ## Features
 
 - **Supported Format Specifiers:**
-  - `%c`: Prints a single character.
-  - `%s`: Prints a string.
-  - `%d` and `%i`: Print integers.
-  - `%b`: Prints the binary representation of an unsigned integer.
-  - `%%`: Prints a percent sign.
+  - **`%c`**: Prints a single character.
+  - **`%s`**: Prints a string.
+  - **`%d`** and **`%i`**: Print integers.
+  - **`%b`**: Prints the binary representation of an unsigned integer.
+  - **`%%`**: Prints a percent sign.
 
 ## Usage/Examples
 
@@ -28,12 +35,11 @@ To use the custom `_printf` function, include the `main.h` header file in your p
 
 **Example**
 
-c
+```c
+#include "main.h"
 
-        #include "main.h"
-
-        int main(void)
-    {
+int main(void)
+{
     _printf("Character: %c\n", 'H');
     _printf("String: %s\n", "Hello, World!");
     _printf("Integer: %d\n", 123);
@@ -41,127 +47,131 @@ c
     _printf("Percent: %%\n");
 
     return 0;
-    }
+}
+```
 
-    stdout: Character: H
+**Expected Output**
 
-    stdout: String: Hello, World !
+```
+Character: H
+String: Hello, World!
+Integer: 123
+Binary: 1100010
+Percent: %
+```
 
-    stdout: Integer: 123
-
-    stdout: Binary: 1100010
-
-    stdout: Percent: %
 ## Test
 
-1. test default
+1. **Test Default**
 
-        CHECK("Hello world !\n");
+    ```c
+    CHECK("Hello world !\n");
+    ```
 
-2. test character
+2. **Test Character**
 
-        CHECK("Character: %c\n", 'a');
+    ```c
+    CHECK("Character: %c\n", 'a');
+    ```
 
-3. test integer
+3. **Test Integer**
 
-        CHECK("Integer: %d\n", 249);
+    ```c
+    CHECK("Integer: %d\n", 249);
+    ```
 
-4. test string
+4. **Test String**
 
-        CHECK("String: %s\n", "Hello my friend !");
+    ```c
+    CHECK("String: %s\n", "Hello my friend !");
+    ```
 
-5. test binary 
+5. **Test Binary**
 
-        _printf("unsigned int: %b\n", 6);
+    ```c
+    _printf("unsigned int: %b\n", 6);
+    ```
 
-6. test global 
+6. **Test Global**
 
-        CHECK("%c, %s, %d, %i\n", 'a', "hello, world !", 3829, 242);
+    ```c
+    CHECK("%c, %s, %d, %i\n", 'a', "hello, world !", 3829, 242);
+    ```
+
 ## Compilation
-*       gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format *.c
-##  Files
 
--*main.h*: Header file containing function prototypes and type definitions.
+Compile the source files with:
 
--*_printf.c*: Contains the main _printf function and its helpers.
+```sh
+gcc -Wall -Werror -Wextra -pedantic -std=gnu89 -Wno-format *.c
+```
 
--*print_char.c*: Contains the function to print a character.
+Or compile with the test file (Only >= C99)
 
--*print_string.c*: Contains the function to print a string.
+```sh
+gcc -Wall -Werror -Wextra -pedantic -std=gnu99 -Wno-format *.c tests/base.c
+```
 
--*print_integer.c*: Contains the functions to print integers.
+## Files
 
--*print_binary.c*: Contains the function to print an unsigned integer in binary.
-
+- **`main.h`**: Header file containing function prototypes and type definitions.
+- **`_printf.c`**: Contains the main `_printf` function and its helpers.
+- **`print_char.c`**: Contains the function to print a character.
+- **`print_string.c`**: Contains the function to print a string.
+- **`print_integer.c`**: Contains the functions to print integers.
+- **`print_binary.c`**: Contains the function to print an unsigned integer in binary.
+- **`tests/base.c`**: The test file for the _printf function.
 
 ## Function Descriptions
 
- _printf: *Formats and prints data to the standard output.*
+- **`_printf`**: Formats and prints data to the standard output.
 
+    ```c
     int _printf(const char *format, ...);
+    ```
 
-print_char: *Prints a single character.*
+- **`print_char`**: Prints a single character.
 
+    ```c
     int print_char(va_list arguments);
+    ```
 
+- **`print_string`**: Prints a string.
 
-print_string: *Prints a string.*
-
+    ```c
     int print_string(va_list arguments);
+    ```
 
-print_integer: *Prints an integer.*
+- **`print_integer`**: Prints an integer.
 
+    ```c
     int print_integer(va_list arguments);
+    ```
 
-print_binary: *Prints the binary representation of an unsigned integer.*
+- **`print_binary`**: Prints the binary representation of an unsigned integer.
 
+    ```c
     int print_binary(va_list arguments);
-
-
-
-
+    ```
 
 ## Struct Definition
 
-PrintType_t: *Structure to map format specifiers to their corresponding print functions.*
+**`PrintType_t`**: Structure to map format specifiers to their corresponding print functions.
 
-    typedef struct PrintType
-    {
+```c
+typedef struct PrintType
+{
     char *type;
     int (*print_type_function)(va_list args);
-    } PrintType_t;
+} PrintType_t;
+```
 
 ## Authors
 
 - [@Arnaud875](https://www.github.com/Arnaud875)
-
 - [@Duupain](https://www.github.com/Duupain)
 
-## Test
-
-1. test default
-
-        CHECK("Hello world !\n");
-
-2. test character
-
-        CHECK("Character: %c\n", 'a');
-
-3. test integer
-
-        CHECK("Integer: %d\n", 249);
-
-4. test string
-
-        CHECK("String: %s\n", "Hello my friend !");
-
-5. test binary 
-
-        _printf("unsigned int: %b\n", 6);
-
-6. test global 
-
-        CHECK("%c, %s, %d, %i\n", 'a', "hello, world !", 3829, 242);
 ## Flowchart
 
+![Flowchart](https://github.com/Arnaud875/holbertonschool-printf/blob/main/flowchart.png?raw=true)
 https://github.com/Arnaud875/holbertonschool-printf/blob/main/flowchart.pngjpeg?raw=true
